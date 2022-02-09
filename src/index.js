@@ -13,8 +13,7 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<PageLogin />} />
-                <Route path='/' element={<PageRegister />} />
-
+                <Route path='/register' element={<PageRegister />} />
             </Routes>
         </BrowserRouter>
     );

@@ -6,7 +6,7 @@ export const AuthProvider = (props) => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        if (localStorage.getItem('user')) {
+        if (localStorage.getItem('userLogged')) {
             let person = localStorage.getItem('user');
             person = JSON.parse(person);
             setUser(person);

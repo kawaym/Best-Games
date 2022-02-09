@@ -5,6 +5,10 @@ export const Container = styled.div`
     width: 100vw;
     height: 100vh;
 
+    background-color: #CF0000;
+    gap: 25px;
+    text-align: center;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,5 +16,5 @@ export const Container = styled.div`
 `;
 
 export const Button = styled(Link)`
-
+    color: #fff;
 `;
