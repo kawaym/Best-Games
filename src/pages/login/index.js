@@ -3,6 +3,7 @@ import Form from "../../components/form";
 import { Button, Container } from "./style";
 import api from '../../services/api';
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/navbar";
 
 
 export default function PageLogin() {
@@ -35,6 +36,7 @@ export default function PageLogin() {
 
     return (
         <Container>
+            <Navbar />
             <Form autoComplete='on' action={login}>
                 <input type="email" autoComplete='username' placeholder="E-mail" name='email' value={userLogin.email} onChange={changeInputs} />
                 <input type="password" autoComplete='current-password' placeholder="Senha" name='password' value={userLogin.password} onChange={changeInputs} />
