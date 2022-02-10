@@ -45,3 +45,7 @@ table {
 button {
     border: none;
 }
+a {
+	font-style: unset;
+	text-decoration: inherit;
+}
