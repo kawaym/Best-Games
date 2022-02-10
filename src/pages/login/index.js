@@ -3,6 +3,7 @@ import Form from "../../components/form";
 import { Button, Container } from "./style";
 import api from '../../services/api';
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/navbar";
 
 
 export default function PageLogin() {
