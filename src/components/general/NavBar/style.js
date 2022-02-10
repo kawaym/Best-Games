@@ -9,7 +9,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
-  position: relative;
+  position: fixed;
 
   p {
     font-family: ${fontFamily};

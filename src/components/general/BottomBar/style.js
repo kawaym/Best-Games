@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   background-color: ${menuColor};
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
 `;
 

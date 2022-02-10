@@ -9,6 +9,7 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
+  overflow-y: scroll;
 
   gap: 25px;
 
