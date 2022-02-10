@@ -1,10 +1,10 @@
 import { Container } from "./style";
 
 
-export default function Form({ children }) {
+export default function Form({ children, action }) {
 
     return (
-        <Container>
+        <Container onSubmit={e => action(e)}>
             {children}
         </Container>
     );

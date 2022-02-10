@@ -2,11 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { render } from 'react-dom';
 import PageLogin from './pages/login';
 import { AuthProvider } from "./providers/auth";
+import PageRegister from "./pages/register";
+import FavoritsPage from "./pages/Favorits";
+import PageRegister from "./pages/register";
+import Home from "./pages/home";
 
 import './css/reset.css';
 import './css/style.css';
-import PageRegister from "./pages/register";
-import Home from "./pages/home";
+
 
 export default function App() {
 
@@ -20,6 +23,8 @@ export default function App() {
                 <Route path="/collectibles" element={<h1>teste</h1>} />
                 <Route path="/accessories" element={<h1>teste</h1>} />
                 <Route path="/games" element={<h1>teste</h1>} />
+                <Route path='/register' element={<PageRegister />} />
+                <Route path='/favorits' element={<FavoritsPage />} />
             </Routes>
         </BrowserRouter>
     );
