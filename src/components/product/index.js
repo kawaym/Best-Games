@@ -1,7 +1,7 @@
 import { Container, Informations } from "./style";
 import ps5 from '../../assets/ps5.jpeg';
 
-export default function FavoritProduct() {
+export default function Product() {
 
     return (
         <Container>

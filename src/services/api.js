@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 
-//const BASE_URL = "https://best-games-api.herokuapp.com";
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://best-games-api.herokuapp.com";
+//const BASE_URL = "http://localhost:5000";
 
 
 

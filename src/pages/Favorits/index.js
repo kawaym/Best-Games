@@ -1,4 +1,4 @@
-import FavoritProduct from "../../components/favoritPRoduct";
+import Product from "../../components/product";
 import { Container } from "./style";
 
 
@@ -6,10 +6,10 @@ export default function FavoritsPage() {
 
     return (
         <Container>
-            <FavoritProduct />
-            <FavoritProduct />
-            <FavoritProduct />
-            <FavoritProduct />
+            <Product />
+            <Product />
+            <Product />
+            <Product />
         </Container>
     );
 }
