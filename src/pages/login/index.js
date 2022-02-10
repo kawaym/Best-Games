@@ -36,7 +36,6 @@ export default function PageLogin() {
 
     return (
         <Container>
-            <Navbar />
             <Form autoComplete='on' action={login}>
                 <input type="email" autoComplete='username' placeholder="E-mail" name='email' value={userLogin.email} onChange={changeInputs} />
                 <input type="password" autoComplete='current-password' placeholder="Senha" name='password' value={userLogin.password} onChange={changeInputs} />
