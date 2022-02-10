@@ -4,7 +4,6 @@ import PageLogin from './pages/login';
 import { AuthProvider } from "./providers/auth";
 import PageRegister from "./pages/register";
 import FavoritsPage from "./pages/Favorits";
-import PageRegister from "./pages/register";
 import Home from "./pages/home";
 
 import './css/reset.css';
