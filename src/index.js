@@ -1,23 +1,27 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { render } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { render } from 'react-dom';
+import PageLogin from './pages/login';
+import { AuthProvider } from "./providers/auth";
 
-import './css/reset';
-import './css/styles';
+import './css/reset.css';
+import './css/style.css';
+import PageRegister from "./pages/register";
 
 export default function App() {
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={ } />
+                <Route path='/' element={<PageLogin />} />
+                <Route path='/register' element={<PageRegister />} />
             </Routes>
         </BrowserRouter>
     );
 }
 
 render(
-    <AuthProviders>
+    <AuthProvider>
         <App />
-    </AuthProviders>,
+    </AuthProvider>,
     document.querySelector('.root')
 );
