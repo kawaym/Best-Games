@@ -45,6 +45,26 @@ function getCart(user) {
 
   return promise;
 }
+function createFavorite(product, user) {
+  const body = {
+    id: product,
+    email: user,
+  };
+
+  const promise = axios.post(`${process.env.REACT_APP_BASE_URL}/favorites`, body);
+
+  return promise;
+}
+function createInCart(product, user) {
+  const body = {
+    id: product,
+    email: user,
+  };
+
+  const promise = axios.post(`${process.env.REACT_APP_BASE_URL}/shopping`, body);
+
+  return promise;
+}
 
 const api = {
   login,
@@ -52,6 +72,8 @@ const api = {
   getProducts,
   getFavorites,
   getCart,
+  createFavorite,
+  createInCart
 };
 
 export default api;

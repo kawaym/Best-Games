@@ -2,8 +2,10 @@ import { Container, Informations, Buttons } from "./style";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BsCart, BsCartFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import api from "../../services/api";
 
 export default function Product({
+  key,
   name,
   image,
   description,

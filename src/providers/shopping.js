@@ -9,20 +9,17 @@ export function ShoppingProvider({ children }) {
   const [shopping, setShopping] = useState(undefined);
   const { user } = useAuth();
   useEffect(() => {
-    const promise = api.getCart('kaway.rocha@gmail.com')
+    const promise = api.getCart("kaway.rocha@gmail.com");
 
-    promise.then((response => {
+    promise.then((response) => {
       setShopping(response.data);
-    }))
-  }, [])
-
-  console.log(shopping);
-
+    });
+  }, []);
   return (
-    <ShoppingContext.Provider value={(shopping, setShopping)}>
+    <ShoppingContext.Provider value={{shopping, setShopping}}>
       {children}
     </ShoppingContext.Provider>
   );
 }
 
-export const useFavorites = () => useContext(ShoppingContext);
+export const useShopping = () => useContext(ShoppingContext);
