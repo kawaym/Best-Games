@@ -10,6 +10,7 @@ export const Container = styled.div`
     border-radius: 10px;
 
     display: flex;
+    position: relative;
 
     img {
         width: 90px;
@@ -34,3 +35,14 @@ export const Informations = styled.div`
     justify-content: space-between;
 `;
 
+export const Buttons = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 7px;
+    right: 15px;
+
+    gap: 10px;
+`

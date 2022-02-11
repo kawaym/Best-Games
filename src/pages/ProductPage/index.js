@@ -43,6 +43,9 @@ export default function ProductPage() {
               image={product.image}
               description={product.description}
               price={product.price}
+              favorite={true}
+              cart={true}
+              home={true}
             />;
           })}
       </Content>

@@ -19,7 +19,7 @@ export const Content = styled.div`
 
   background-color: ${bgColor};
 
-  svg {
+  &~svg {
     position: absolute;
     left: 50%;
     bottom: 50%;
