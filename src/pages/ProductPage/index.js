@@ -6,17 +6,12 @@ import { Content, VoidMessage } from "./style";
 import Product from "../../components/product";
 import { useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
-import { useFavorites } from "../../providers/favorites";
-import { useShopping } from "../../providers/shopping";
+
 
 export default function ProductPage() {
   const params = useParams();
   const [products, setProducts] = useState(undefined);
-  const {favorites} = useFavorites();
-  const {shopping} = useShopping();
-
-  console.log(favorites);
-  console.log(shopping)
+  
 
   useEffect(() => {
     const promise = api.getProducts(params.category);
@@ -24,7 +19,7 @@ export default function ProductPage() {
       setProducts(response.data);
     });
   }, []);
-  if (products === undefined || favorites === undefined || shopping === undefined) {
+  if (products === undefined) {
     return (
       <>
         <NavBar></NavBar>
@@ -45,12 +40,11 @@ export default function ProductPage() {
           products.map((product) => {
             return <Product
               key={product.id}
+              id={product.id}
               name={product.name}
               image={product.image}
               description={product.description}
               price={product.price}
-              favorite={favorites.filter((item) => item.id === product.id).length > 0}
-              cart={shopping.filter((item) => item.id === product.id).length > 0}
               home={true}
             />;
           })}

@@ -17,8 +17,15 @@ export function FavoriteProvider({ children }) {
   }, [])
 
 
+  function receiveFavorites(){
+    const promise =  api.getFavorites('kaway.rocha@gmail.com');
+    promise.then(response => {
+      setFavorites(response.data)
+    })
+  }
+
   return (
-    <FavoriteContext.Provider value={{favorites, setFavorites}}>
+    <FavoriteContext.Provider value={{favorites, receiveFavorites}}>
       {children}
     </FavoriteContext.Provider>
   );

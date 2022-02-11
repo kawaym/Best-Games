@@ -15,8 +15,15 @@ export function ShoppingProvider({ children }) {
       setShopping(response.data);
     });
   }, []);
+
+  function receiveShopping(){
+    const promise =  api.getCart('kaway.rocha@gmail.com');
+    promise.then(response => {
+      setShopping(response.data)
+    })
+  }
   return (
-    <ShoppingContext.Provider value={{shopping, setShopping}}>
+    <ShoppingContext.Provider value={{shopping, receiveShopping}}>
       {children}
     </ShoppingContext.Provider>
   );
