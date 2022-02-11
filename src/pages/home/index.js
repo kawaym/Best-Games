@@ -13,25 +13,25 @@ export default function Home() {
     <>
       <NavBar></NavBar>
       <Content>
-        <Link to="/consoles">
+        <Link to="/products-consoles">
           <CategoryButton>
             <h1>Consoles</h1>
             <FaServer size={50}></FaServer>
           </CategoryButton>
         </Link>
-        <Link to="/collectibles">
+        <Link to="/products-collectibles">
           <CategoryButton>
             <h1>Colecionáveis</h1>
             <RiGameFill size={50}></RiGameFill>
           </CategoryButton>
         </Link>
-        <Link to="/accessories">
+        <Link to="/products-accessories">
           <CategoryButton>
             <h1>Acessórios</h1>
             <GiConsoleController size={50}></GiConsoleController>
           </CategoryButton>
         </Link>
-        <Link to="/games">
+        <Link to="/products-games">
           <CategoryButton>
             <h1>Jogos</h1>
             <BsFillDiscFill size={50}></BsFillDiscFill>

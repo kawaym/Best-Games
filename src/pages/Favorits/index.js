@@ -6,10 +6,6 @@ export default function FavoritsPage() {
 
     return (
         <Container>
-            <Product />
-            <Product />
-            <Product />
-            <Product />
         </Container>
     );
 }
