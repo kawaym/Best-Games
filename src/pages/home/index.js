@@ -1,6 +1,6 @@
-import BottomBar from "../../components/general/BottomBar";
-import CategoryButton from "../../components/general/CategoryButton";
-import NavBar from "../../components/general/NavBar";
+import BottomBar from "../../components/BottomBar";
+import CategoryButton from "../../components/CategoryButton";
+import NavBar from "../../components/header";
 import { Content } from "./style";
 import { FaServer } from "react-icons/fa";
 import { RiGameFill } from "react-icons/ri";

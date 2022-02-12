@@ -37,8 +37,6 @@ export const Informations = styled.div`
 
 export const Buttons = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
 
     position: absolute;
     bottom: 7px;

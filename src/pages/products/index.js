@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import BottomBar from "../../components/general/BottomBar";
-import NavBar from "../../components/general/NavBar";
+import BottomBar from "../../components/BottomBar";
+import NavBar from "../../components/header";
 import api from "../../services/api";
 import { Content, VoidMessage } from "./style";
 import Product from "../../components/product";

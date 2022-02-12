@@ -1,4 +1,3 @@
-import Product from "../../components/product";
 import { Container } from "./style";
 
 

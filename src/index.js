@@ -5,7 +5,7 @@ import { AuthProvider } from "./providers/auth";
 import PageRegister from "./pages/register";
 import FavoritsPage from "./pages/Favorits";
 import Home from "./pages/home";
-import ProductPage from "./pages/ProductPage";
+import ProductPage from "./pages/products";
 
 import './css/reset.css';
 import './css/style.css';

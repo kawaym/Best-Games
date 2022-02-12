@@ -14,7 +14,7 @@ export default function Product({
 }) {
   const correctedPrice = String(parseFloat(price).toFixed(2)).replace(".", ",");
 
-  const [isFavorite, setIsFavorite] = useState(<AiOutlineHeart size={30} />);
+  const [isFavorite, setIsFavorite] = useState(<AiOutlineHeart size={10} />);
   const [isInCart, setIsInCart] = useState(<BsCart size={30} />);
 
   useEffect(() => {

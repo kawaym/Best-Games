@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { menuColor } from "../../../css/constants";
+import { menuColor } from "../../css/constants";
 
 export const Container = styled.div`
   width: 100%;
