@@ -9,23 +9,23 @@ export function FavoriteProvider({ children }) {
   const [favorites, setFavorites] = useState(undefined);
   const { user } = useAuth();
   useEffect(() => {
-    const promise = api.getFavorites('kaway.rocha@gmail.com')
+    if (user) {
+      const promise = api.getFavorites(user.user);
 
-    promise.then((response => {
+      promise.then((response) => {
+        setFavorites(response.data);
+      });
+    }
+  }, [user]);
+  function receiveFavorites() {
+    const promise = api.getFavorites(user.user);
+    promise.then((response) => {
       setFavorites(response.data);
-    }))
-  }, [])
-
-
-  function receiveFavorites(){
-    const promise =  api.getFavorites('kaway.rocha@gmail.com');
-    promise.then(response => {
-      setFavorites(response.data)
-    })
+    });
   }
 
   return (
-    <FavoriteContext.Provider value={{favorites, receiveFavorites}}>
+    <FavoriteContext.Provider value={{ favorites, receiveFavorites }}>
       {children}
     </FavoriteContext.Provider>
   );

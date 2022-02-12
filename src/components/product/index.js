@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { useFavorites } from "../../providers/favorites";
 import { useShopping } from "../../providers/shopping";
+import { useAuth } from "../../providers/auth";
 
 export default function Product({ id, name, image, description, price, home }) {
   const correctedPrice = String(parseFloat(price).toFixed(2)).replace(".", ",");
@@ -14,6 +15,7 @@ export default function Product({ id, name, image, description, price, home }) {
 
   const { favorites, receiveFavorites } = useFavorites();
   const { shopping, receiveShopping } = useShopping();
+  const { user } = useAuth();
 
   function checkPresence(id) {
     const presenceFavorite =
@@ -23,31 +25,38 @@ export default function Product({ id, name, image, description, price, home }) {
 
     if (presenceFavorite) {
       setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
     }
     if (presenceShopping) {
       setIsInCart(true);
+    } else {
+      setIsInCart(false);
     }
 
     return;
   }
+  useEffect(() => checkPresence(id));
   useEffect(() => checkPresence(id), [favorites, shopping]);
 
-  function handleSelection(type){
-    if (type === 'favorite') {
-      if (!isFavorite){
-        const promise = api.createFavorite(id, 'kaway.rocha@gmail.com');
-        promise.then(
-          receiveFavorites()
-          )
-        }
-      
-    }
-    else {
-      if (!isInCart){
-        const promise = api.createInCart(id, 'kaway.rocha@gmail.com');
-        promise.then(
-          receiveShopping()
-        )
+  function handleSelection(type) {
+    if (type === "favorite") {
+      if (!isFavorite) {
+        const promise = api.createFavorite(id, user.user);
+        promise.then(receiveFavorites());
+      }
+      if (isFavorite) {
+        const promise = api.deleteFavorite(id, user.user);
+        promise.then(receiveFavorites());
+      }
+    } else {
+      if (!isInCart) {
+        const promise = api.createInCart(id, user.user);
+        promise.then(receiveShopping());
+      }
+      if (isInCart) {
+        const promise = api.deleteInCart(id, user.user);
+        promise.then(receiveShopping());
       }
     }
   }
@@ -59,10 +68,24 @@ export default function Product({ id, name, image, description, price, home }) {
         <span>{description}</span>
         <span>R$ {correctedPrice}</span>
         <Buttons>
-          {home && isFavorite && <AiFillHeart size={30} onClick={() => handleSelection('favorite')}/>}
-          {home && !isFavorite && <AiOutlineHeart size={30} onClick={() => handleSelection('favorite')}/>}
-          {home && isInCart && <BsCartFill size={30} onClick={() => handleSelection('shopping')}/>}
-          {home && !isInCart && <BsCart size={30} onClick={() => handleSelection('shopping')}/>}
+          {home && isFavorite && (
+            <AiFillHeart
+              size={30}
+              onClick={() => handleSelection("favorite")}
+            />
+          )}
+          {home && !isFavorite && (
+            <AiOutlineHeart
+              size={30}
+              onClick={() => handleSelection("favorite")}
+            />
+          )}
+          {home && isInCart && (
+            <BsCartFill size={30} onClick={() => handleSelection("shopping")} />
+          )}
+          {home && !isInCart && (
+            <BsCart size={30} onClick={() => handleSelection("shopping")} />
+          )}
         </Buttons>
       </Informations>
     </Container>

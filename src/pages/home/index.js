@@ -1,6 +1,6 @@
 import BottomBar from "../../components/general/BottomBar";
 import CategoryButton from "../../components/general/CategoryButton";
-import NavBar from "../../components/general/NavBar";
+import Header from "../../components/general/Header";
 import { Content } from "./style";
 import { FaServer } from "react-icons/fa";
 import { RiGameFill } from "react-icons/ri";
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      <NavBar></NavBar>
+      <Header></Header>
       <Content>
         <Link to="/products-consoles">
           <CategoryButton>

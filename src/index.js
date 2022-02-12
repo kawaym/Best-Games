@@ -11,6 +11,7 @@ import "./css/reset.css";
 import "./css/style.css";
 import { FavoriteProvider } from "./providers/favorites";
 import { ShoppingProvider } from "./providers/shopping";
+import ShoppingPage from "./pages/ShoppingPage";
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
         <Route path="/products-:category" element={<ProductPage />} />
         <Route path="/register" element={<PageRegister />} />
         <Route path="/favorites" element={<FavoritsPage />} />
-        <Route path="/shopping" element={<h1>teste</h1>} />
+        <Route path="/shopping" element={<ShoppingPage />} />
       </Routes>
     </BrowserRouter>
   );

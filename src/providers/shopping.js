@@ -9,21 +9,23 @@ export function ShoppingProvider({ children }) {
   const [shopping, setShopping] = useState(undefined);
   const { user } = useAuth();
   useEffect(() => {
-    const promise = api.getCart("kaway.rocha@gmail.com");
+    if (user) {
+      const promise = api.getCart(user.user);
 
+      promise.then((response) => {
+        setShopping(response.data);
+      });
+    }
+  }, [user]);
+
+  function receiveShopping() {
+    const promise = api.getCart(user.user);
     promise.then((response) => {
       setShopping(response.data);
     });
-  }, []);
-
-  function receiveShopping(){
-    const promise =  api.getCart('kaway.rocha@gmail.com');
-    promise.then(response => {
-      setShopping(response.data)
-    })
   }
   return (
-    <ShoppingContext.Provider value={{shopping, receiveShopping}}>
+    <ShoppingContext.Provider value={{ shopping, receiveShopping }}>
       {children}
     </ShoppingContext.Provider>
   );

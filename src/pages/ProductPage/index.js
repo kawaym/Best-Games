@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import BottomBar from "../../components/general/BottomBar";
-import NavBar from "../../components/general/NavBar";
+import Header from "../../components/general/Header";
 import api from "../../services/api";
 import { Content, VoidMessage } from "./style";
 import Product from "../../components/product";
@@ -22,7 +22,7 @@ export default function ProductPage() {
   if (products === undefined) {
     return (
       <>
-        <NavBar></NavBar>
+        <Header></Header>
         <Content>
           <Oval color="#00BFFF" height={80} width={80} />
         </Content>
@@ -33,7 +33,7 @@ export default function ProductPage() {
 
   return (
     <>
-      <NavBar></NavBar>
+      <Header></Header>
       <Content>
         {products.length === 0 && <VoidMessage>Parece que não há nada aqui</VoidMessage>}
         {products.length !== 0 &&

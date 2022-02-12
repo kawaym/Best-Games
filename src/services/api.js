@@ -48,20 +48,57 @@ function getCart(user) {
 function createFavorite(product, user) {
   const body = {
     id: product,
-    email: user,
+    user: user,
   };
 
-  const promise = axios.post(`${process.env.REACT_APP_BASE_URL}/favorites`, body);
+  const promise = axios.post(
+    `${process.env.REACT_APP_BASE_URL}/favorites`,
+    body
+  );
 
   return promise;
 }
 function createInCart(product, user) {
   const body = {
     id: product,
-    email: user,
+    user: user,
   };
 
-  const promise = axios.post(`${process.env.REACT_APP_BASE_URL}/shopping`, body);
+  const promise = axios.post(
+    `${process.env.REACT_APP_BASE_URL}/shopping`,
+    body
+  );
+
+  return promise;
+}
+
+function deleteFavorite(product, user) {
+  const config = {
+    headers: {
+      id: product,
+      user: user,
+    },
+  };
+
+  const promise = axios.delete(
+    `${process.env.REACT_APP_BASE_URL}/favorites`,
+    config
+  );
+
+  return promise;
+}
+function deleteInCart(product, user) {
+  const config = {
+    headers: {
+      id: product,
+      user: user,
+    },
+  };
+
+  const promise = axios.delete(
+    `${process.env.REACT_APP_BASE_URL}/shopping`,
+    config
+  );
 
   return promise;
 }
@@ -73,7 +110,9 @@ const api = {
   getFavorites,
   getCart,
   createFavorite,
-  createInCart
+  createInCart,
+  deleteFavorite,
+  deleteInCart,
 };
 
 export default api;

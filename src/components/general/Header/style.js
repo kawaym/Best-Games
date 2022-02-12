@@ -10,6 +10,7 @@ export const Container = styled.div`
   align-items: center;
 
   position: fixed;
+  z-index: 2;
 
   p {
     font-family: ${fontFamily};
