@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Header from "../../components/haeder";
-import api from "../../services/api";
-import { Container } from "./style";
+import MenuBottom from "../../components/menu";
 import Product from "../../components/product";
 import { useAuth } from "../../providers/auth";
-import MenuBottom from "../../components/menu";
+import api from "../../services/api";
+import { Container } from "./style";
 
 
-export default function ProductsPage() {
+export default function FavoritesPage() {
 
-    const { productType } = useParams();
     const [products, setProducts] = useState([]);
     const { user } = useAuth();
     const [favorites, setFavorites] = useState([]);
     const [cart, setCart] = useState([]);
+    const [favoritesId, setFavoritesId] = useState([]);
+
 
     useEffect(() => {
-        const promise = api.getProducts(productType);
+        const promise = api.getProducts("");
         promise.then(response => {
             setProducts(response.data);
         }).catch(err => {
@@ -28,19 +28,21 @@ export default function ProductsPage() {
             let promise = api.getFavorites(user);
             promise.then(response => {
                 setFavorites(response.data);
+                setFavoritesId(response.data.map(item => (item.id)));
             })
             promise = api.getCart(user);
             promise.then(response => {
                 setCart(response.data);
             });
         }
+    }, [user]);
 
-    }, [user, productType]);
+    const shows = products.filter(product => favoritesId.includes(product._id));
 
     return (
         <Container>
-            <Header text={productType} />
-            {products.map((product, index) => (
+            <Header text={"Favoritos"} />
+            {shows.map((product, index) => (
                 <Product
                     product={product}
                     key={index}

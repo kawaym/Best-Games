@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
-    height: 100px;
 
     padding: 10px;
     gap: 15px;
-    background-color: #fff;
+    background-color: lightgray;
     border-radius: 10px;
 
     display: flex;
@@ -14,7 +13,6 @@ export const Container = styled.div`
 
     img {
         width: 90px;
-        height: 100%;
 
         border: 1px solid #666;
         border-radius: 5px;
@@ -27,7 +25,7 @@ export const Container = styled.div`
 
 export const Informations = styled.div`
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -38,9 +36,23 @@ export const Informations = styled.div`
 export const Buttons = styled.div`
     display: flex;
 
-    position: absolute;
     bottom: 7px;
     right: 15px;
 
     gap: 10px;
-`
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+export const Bottom = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        display: flex;
+        gap: 5px;
+    }
+`;

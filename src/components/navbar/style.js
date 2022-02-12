@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -10,7 +9,7 @@ export const Container = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 10;
 `;
 
 export const BackgroundOpacity = styled.div`
@@ -48,7 +47,7 @@ export const Menu = styled.div`
 
 `;
 
-export const Text = styled(Link)`
+export const Text = styled.div`
     width: auto;
     padding: 10px;
     text-align: left;

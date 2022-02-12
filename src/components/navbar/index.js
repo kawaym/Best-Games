@@ -7,7 +7,7 @@ import { AiOutlineLogout } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Navbar() {
+export default function Navbar({ setShowNav }) {
 
     const navigate = useNavigate();
 
@@ -17,19 +17,35 @@ export default function Navbar() {
         window.location.reload();
     }
 
+    function pageChange(path) {
+        navigate(path);
+        window.location.reload();
+    }
+
     return (
         <Container>
             <Menu>
                 <div>
                     <h1>Best - Game</h1>
                     <Line />
-                    <Text to='/consoles'>Consoles <FaServer /></Text>
+                    <Text onClick={() => pageChange("/products/consoles")} >
+                        Consoles <FaServer />
+                    </Text>
+
                     <Line />
-                    <Text to='/consoles'>Jogos<BsFillDiscFill /></Text>
+                    <Text onClick={() => pageChange("/products/games")}>
+                        Jogos <BsFillDiscFill />
+                    </Text>
+
                     <Line />
-                    <Text to='/consoles'>Colecionáveis<RiGameFill /></Text>
+                    <Text onClick={() => pageChange("/products/collectibles")}>
+                        Colecionáveis<RiGameFill />
+                    </Text>
+
                     <Line />
-                    <Text to='/consoles'>Acessórios<GiConsoleController /></Text>
+                    <Text onClick={() => pageChange("/products/accessories")}>
+                        Acessórios<GiConsoleController />
+                    </Text>
                     <Line />
                 </div>
 
@@ -39,7 +55,7 @@ export default function Navbar() {
 
             </Menu>
 
-            <BackgroundOpacity />
+            <BackgroundOpacity onClick={() => setShowNav(false)} />
         </Container >
     );
 }
