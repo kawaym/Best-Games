@@ -1,14 +1,15 @@
 import Product from "../../components/product";
-import { Container, VoidMessage } from "./style";
+import { CheckoutButton, Container, VoidMessage } from "./style";
 import Header from "../../components/general/Header";
 import { Oval } from "react-loader-spinner";
-import { useFavorites } from "../../providers/favorites";
 import BottomBar from "../../components/general/BottomBar";
+import { useShopping } from "../../providers/shopping";
+import { Link } from "react-router-dom";
 
-export default function FavoritsPage() {
-  const { favorites } = useFavorites();
+export default function ShoppingPage() {
+  const { shopping } = useShopping();
 
-  if (favorites === undefined) {
+  if (shopping === undefined) {
     return (
       <>
         <Header></Header>
@@ -23,11 +24,11 @@ export default function FavoritsPage() {
     <>
       <Header></Header>
       <Container>
-        {favorites.length === 0 && (
+        {shopping.length === 0 && (
           <VoidMessage>Parece que não nada aqui</VoidMessage>
         )}
-        {favorites.length !== 0 &&
-          favorites.map((product) => {
+        {shopping.length !== 0 &&
+          shopping.map((product) => {
             return (
               <Product
                 key={product.id}
@@ -40,8 +41,13 @@ export default function FavoritsPage() {
               />
             );
           })}
+        {shopping.length !== 0 && (
+          <Link to="/checkout">
+            <CheckoutButton>Confirmar Compra</CheckoutButton>
+          </Link>
+        )}
       </Container>
-      <BottomBar></BottomBar>
+      <BottomBar location={"cart"}></BottomBar>
     </>
   );
 }

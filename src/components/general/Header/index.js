@@ -1,7 +1,7 @@
 import { Container } from "./style";
 import { AiOutlineUser } from 'react-icons/ai';
 
-export default function NavBar(){
+export default function Header(){
   return (
     <Container>
       <p>Best-Games</p>

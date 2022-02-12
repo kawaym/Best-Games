@@ -1,15 +1,24 @@
 import styled from 'styled-components';
+import { bgColor } from '../../css/constants';
 
 export const Container = styled.div`
     width: 100vw;
-    height: 100vh;
+    min-height: 100%;
 
-    background-color: #666;
+    background-color: ${bgColor};
     gap: 10px;
-    padding: 30px 10px;;
+    padding: 70px 10px;
 
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+
+    svg:first-child {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 export const Product = styled.div`
@@ -21,4 +30,10 @@ export const Product = styled.div`
 
     display: flex;
     flex-direction: column;
+`;
+export const VoidMessage = styled.h1`
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
 `;
