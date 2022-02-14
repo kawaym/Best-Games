@@ -18,7 +18,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<PageLogin />} />
-        <Route path="/" element={<PageRegister />} />
+        <Route path="/register" element={<PageRegister />} />
         <Route path="/home" element={<Home />} />
         <Route path="/products/:productType" element={<ProductsPage />} />
         <Route path="/cart" element={<CartPage />} />
