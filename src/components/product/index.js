@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function Product({ product, favorites, cart, icon }) {
 
-  const price = (parseFloat(product.value) / 100).toFixed(2);
+  const price = (parseFloat(product.price) / 100).toFixed(2);
 
   const [favorited, setFavorited] = useState(false);
   const [inCart, setInCart] = useState(false);
